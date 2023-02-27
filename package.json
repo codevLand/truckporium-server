@@ -1,0 +1,23 @@
+{
+  "name": "truckporium-server",
+  "version": "0.1.0a",
+  "description": "alpha version",
+  "main": "src/server.js",
+  "repository": "https://github.com/codevLand/truckporium-server.git",
+  "author": "codevland [O. Oda]",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --trace-deprecation src/server.js",
+    "dev": "nodemon src/server.js",
+    "apidoc": "yarn insomnia-documenter --config ./../docs/api.json --output ./../docs/api && cd ../docs/api && npx serve"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
