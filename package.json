@@ -12,9 +12,13 @@
     "apidoc": "yarn insomnia-documenter --config ./../docs/api.json --output ./../docs/api && cd ../docs/api && npx serve"
   },
   "dependencies": {
+    "argon2": "^0.30.3",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "joi": "^17.8.3",
     "morgan": "^1.10.0",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.29.0",
     "winston": "^3.8.2"
   },
   "devDependencies": {

@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-// users
+// base path
 router.all('/', (req, res) => { res.json({ app: `running` }); })
 
-
-// router.use('/user', require('./User/user.route'))
+// users
+router.use('/user', require('./User/user.route'))
 
 
 module.exports = router

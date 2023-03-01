@@ -1,4 +1,4 @@
-const logger = require('./../_helpers/winston')
+const logger = require('../_helpers/winston')
 
 module.exports = { errorHandler, validateReq }
 
