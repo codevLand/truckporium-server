@@ -9,5 +9,8 @@ router.all('/', (req, res) => { res.json({ app: `running` }); })
 // users
 router.use('/user', tryCatch( require('./User/user.route') ))
 
+// users
+router.use('/history', tryCatch( require('./History/history.route') ))
+
 
 module.exports = router
