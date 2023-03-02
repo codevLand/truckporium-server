@@ -57,7 +57,7 @@ const transports = [
     filename: 'logs/error.log',
     level: 'error',
   }),
-  // Logs api messages
+  // Allow to print all the http level messages inside the api.log file
   new winston.transports.File({
     filename: 'logs/api.log',
     level: 'http',

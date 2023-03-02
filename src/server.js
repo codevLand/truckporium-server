@@ -22,8 +22,6 @@ app.use(cors());
 app.use('/', router);
 app.use(errorHandler);
 
+const log = require('./_helpers/winston')
 http.createServer(app)
-  .listen(server.port, server.host, () => { console.log(
-    `Server started: http://${server.host}:${server.port}`
-  )})
-  // .error( (err) => console.error(err) )
+  .listen(server.port, () => { log.info('Server started') })
