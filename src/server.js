@@ -24,7 +24,4 @@ app.use(errorHandler);
 
 const log = require('./_helpers/winston')
 http.createServer(app)
-  .listen(server.port, server.host, () => { 
-    log.info('Server started')
-  })
-  // .error( (err) => console.error(err) )
+  .listen(server.port, () => { log.info('Server started') })

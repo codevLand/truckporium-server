@@ -37,7 +37,7 @@ function updateSchema(req, res, next) {
     email: Joi.string().email().empty(''),
     phone_no: Joi.string().length(10).empty(''),
     password: Joi.string().empty(''),
-    confirmPassword: Joi.string().valid(Joi.ref('password')).empty('')
-  }).with('password', 'confirmPassword');
+    isActive: Joi.boolean().empty(''),
+  });
   validateReq(req, next, schema);
 }

@@ -47,20 +47,17 @@ async function _delete(req, res, next) {
 }
 
 // return data response formatter
-function resCreate(params) {
+
+function resCreate(user) {
   return {
-    firstname: params.firstname,
-    lastname: params.lastname,
-    role: params.role,
-    email: params.email,
-    phone_no: params.phone_no,
+    firstname: user.firstname,
+    lastname: user.lastname,
+    role: user.role,
+    email: user.email,
+    phone_no: user.phone_no,
   }
 }
 
-function resUpdate(params) {
-  return { update: user.new }
-}
+function resUpdate(user) { return user.new }
 
-function resDelete() {
-  return { message: `User deleted` }
-}
+function resDelete() { return { message: `User deleted` } }
