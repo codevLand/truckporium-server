@@ -4,6 +4,7 @@ module.exports = {
 }
 
 const userService = require('./user.service')
+const historyService = require('../History/history.service')
 
 
 async function getAll(req, res, next) {
@@ -22,7 +23,8 @@ async function find() {
 
 async function create(req, res, next) {
   const user = await userService.create(req.body)
-  return res.json(resCreate(user))
+  await historyService.log(req.method, user)
+  return res.json(user)
 }
 
 async function update(req, res, next) {
