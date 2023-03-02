@@ -23,8 +23,8 @@ async function find() {
 
 async function create(req, res, next) {
   const user = await userService.create(req.body)
-  await historyService.log(req.method, user)
-  return res.json(user)
+  await historyService.log(req.method, user.data, user.table)
+  return res.json(user.data)
 }
 
 async function update(req, res, next) {

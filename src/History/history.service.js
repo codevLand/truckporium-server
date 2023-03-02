@@ -32,10 +32,11 @@ async function getHistory(id) {
 // helper functions
 
 async function log(method, data, table) {
+  console.log(table)
   const params = {
     actor: 1,
     action: method,
-    table: data.table,
+    table: table,
     field: data.old ? data.old.field : "id",
     oldValue: data.old ? data.old.value : null,
     newValue: data.old ? data.new.value : data.id,

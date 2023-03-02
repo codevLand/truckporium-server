@@ -1,14 +1,15 @@
 const express = require('express')
 const router = express.Router()
 
+const tryCatch = require('../_middlewares/errHandler').tryCatch
 const controller = require('./user.controller')
 // const auth = require('./../../_middlewares/auth')
 
-router.get('/', controller.getAll)
-router.get('/:id', controller.getById)
-router.post('/', createSchema, controller.create)
-router.put('/:id', updateSchema, controller.update)
-router.delete('/:id', controller._delete)
+router.get('/', tryCatch(controller.getAll))
+router.get('/:id', tryCatch(controller.getById))
+router.post('/', createSchema, tryCatch(controller.create))
+router.put('/:id', updateSchema, tryCatch(controller.update))
+router.delete('/:id', tryCatch(controller._delete))
 
 module.exports = router
 

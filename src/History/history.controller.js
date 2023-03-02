@@ -24,20 +24,3 @@ async function create(req, res) {
   const history = await historyService.create(req.body)
   return res.json(resCreate(history))
 }
-
-
-// return data response formatter
-
-function resCreate(history) {
-  return {
-    firstname: history.firstname,
-    lastname: history.lastname,
-    role: history.role,
-    email: history.email,
-    phone_no: history.phone_no,
-  }
-}
-
-function resUpdate(history) { return history.new }
-
-function resDelete() { return { message: `History deleted` } }

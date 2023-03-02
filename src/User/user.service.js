@@ -31,8 +31,7 @@ async function create(params) {
     if (await phoneExist) throw 'Phone number already registered'
   }
   params.password = await argon2.hash(params.password)
-  params.table = User.tableName
-  return await User.create(params)
+  return { data: await User.create(params), table: User.tableName }
 }
 
 async function update(id, tempValue) {
