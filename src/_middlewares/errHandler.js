@@ -1,7 +1,5 @@
 const logger = require('../_helpers/winston')
 
-module.exports = { errorHandler, validateReq }
-
 // base error handler
 function errorHandler(err, req, res, next) {
   if(res.headersSent) return // next(err, req, res, next);
@@ -27,8 +25,14 @@ function validateReq(req, next, schema) {
     throw 'Validation error: ' + error.details
       .map(x => x.message)
       .join(', ')
-      //.toString().replace(/\\"/g, '').replace(/"/g, '')
   }
   req.body = value;
   next();
 }
+
+const tryCatch = (blocks) => async (req,res,next) => {
+  try { return await blocks(req,res,next) }
+  catch (err) { return next(err) }
+}
+
+module.exports = { errorHandler, validateReq, tryCatch }

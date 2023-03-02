@@ -7,17 +7,13 @@ const userService = require('./user.service')
 
 
 async function getAll(req, res, next) {
-  try {
-    const user = await userService.getAll(req.query)
-    return res.json(user)
-  } catch (err) { next(err) }
+  const user = await userService.getAll(req.query)
+  return res.json(user)
 }
 
 async function getById(req, res, next) {
-  try {
-    const user = await userService.getById(req.params.id)
-    return res.json(user)
-  } catch (err) { next(err) }
+  const user = await userService.getById(req.params.id)
+  return res.json(user)
 }
 
 async function find() {
@@ -25,25 +21,18 @@ async function find() {
 }
 
 async function create(req, res, next) {
-  try {
-    const user = await userService.create(req.body)
-    return res.json( resCreate(user) )
-  } catch(err) { next(err) }
+  const user = await userService.create(req.body)
+  return res.json(resCreate(user))
 }
 
 async function update(req, res, next) {
-  try {
-    const user = await userService.update(req.params.id,req.body)
-    return res.json( resUpdate(user) )
-  } 
-  catch(err) { next(err) }
+  const user = await userService.update(req.params.id,req.body)
+  return res.json(resUpdate(user))
 }
 
 async function _delete(req, res, next) {
-  try {
-    await userService.delete(req.params.id)
-    res.json( resDelete() )
-  } catch(err) { next(err) }
+  await userService.delete(req.params.id)
+  res.json(resDelete())
 }
 
 // return data response formatter
